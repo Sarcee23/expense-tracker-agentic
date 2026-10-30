@@ -15,6 +15,12 @@ function App() {
     ])
   }
 
+  function handleDeleteExpense(id) {
+    setExpenses((currentExpenses) =>
+      currentExpenses.filter((expense) => expense.id !== id),
+    )
+  }
+
   const filteredExpenses =
     selectedCategory === 'All'
       ? expenses
@@ -28,7 +34,10 @@ function App() {
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
       />
-      <ExpenseList expenses={filteredExpenses} />
+      <ExpenseList
+        expenses={filteredExpenses}
+        onDeleteExpense={handleDeleteExpense}
+      />
     </main>
   )
 }
