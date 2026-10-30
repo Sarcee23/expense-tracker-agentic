@@ -36,6 +36,11 @@ function ExpenseForm({ onAddExpense }) {
       return
     }
 
+    if (numericAmount > 100000) {
+      setError('Amount must not exceed 100,000.')
+      return
+    }
+
     const expense = {
       title: trimmedTitle,
       amount: numericAmount,
@@ -58,6 +63,7 @@ function ExpenseForm({ onAddExpense }) {
         <input
           id="expense-title"
           data-cy="title"
+          data-testid="title"
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
@@ -69,6 +75,7 @@ function ExpenseForm({ onAddExpense }) {
         <input
           id="expense-amount"
           data-cy="amount"
+          data-testid="amount"
           type="number"
           step="0.01"
           value={amount}
@@ -81,6 +88,7 @@ function ExpenseForm({ onAddExpense }) {
         <select
           id="expense-category"
           data-cy="category"
+          data-testid="category"
           value={category}
           onChange={(event) => setCategory(event.target.value)}
         >

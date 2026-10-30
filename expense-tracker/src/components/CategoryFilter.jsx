@@ -11,6 +11,7 @@ function CategoryFilter({ selectedCategory, onSelectCategory }) {
       value={selectedCategory}
       onChange={handleChange}
       data-cy="filter"
+      data-testid="filter"
     >
       <option value="All">All</option>
       <option value="Food">Food</option>

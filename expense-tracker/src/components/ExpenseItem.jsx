@@ -14,6 +14,7 @@ function ExpenseItem({ expense, onDeleteExpense }) {
       <button
         type="button"
         data-cy="delete-expense"
+        data-testid="delete-expense"
         onClick={() => onDeleteExpense(expense.id)}
       >
         Delete
