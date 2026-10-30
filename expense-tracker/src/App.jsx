@@ -26,6 +26,10 @@ function App() {
       ? expenses
       : expenses.filter((expense) => expense.category === selectedCategory)
 
+  const total = filteredExpenses
+    .reduce((sum, expense) => sum + Number(expense.amount), 0)
+    .toFixed(2)
+
   return (
     <main>
       <h1>Expense Tracker</h1>
@@ -34,6 +38,7 @@ function App() {
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
       />
+      <p data-cy="total">Total: {total}</p>
       <ExpenseList
         expenses={filteredExpenses}
         onDeleteExpense={handleDeleteExpense}

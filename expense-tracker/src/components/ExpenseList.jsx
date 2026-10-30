@@ -1,15 +1,11 @@
 import ExpenseItem from './ExpenseItem'
 
-// Props: expenses — the expenses to display; onDeleteExpense — removes an expense by id.
-function ExpenseList({ expenses, onDeleteExpense }) {
+// Props: expenses — an array of expenses to display.
+function ExpenseList({ expenses }) {
   return (
     <ul>
       {expenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          expense={expense}
-          onDeleteExpense={onDeleteExpense}
-        />
+        <ExpenseItem key={expense.id} expense={expense} />
       ))}
     </ul>
   )
