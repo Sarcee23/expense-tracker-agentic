@@ -39,6 +39,7 @@ function App() {
         onSelectCategory={setSelectedCategory}
       />
       <p data-cy="total">Total: {total}</p>
+      <p data-cy="count">Count: {filteredExpenses.length}</p>
       <ExpenseList
         expenses={filteredExpenses}
         onDeleteExpense={handleDeleteExpense}
